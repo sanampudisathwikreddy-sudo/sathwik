@@ -1,0 +1,52 @@
+{
+	"name": "Json3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_adls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Person.Address.json",
+				"folderPath": "json",
+				"fileSystem": "sathwik-container-dev"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"AddressID": {
+					"type": "string"
+				},
+				"AddressLine1": {
+					"type": "string"
+				},
+				"AddressLine2": {
+					"type": "null"
+				},
+				"City": {
+					"type": "string"
+				},
+				"StateProvinceID": {
+					"type": "string"
+				},
+				"PostalCode": {
+					"type": "string"
+				},
+				"SpatialLocation": {
+					"type": "string"
+				},
+				"rowguid": {
+					"type": "string"
+				},
+				"ModifiedDate": {
+					"type": "string"
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,74 @@
+{
+	"name": "AzureSqlTable6",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_azuresql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ProductID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "BusinessEntityID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "AverageLeadTime",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "StandardPrice",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "LastReceiptCost",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "LastReceiptDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "MinOrderQty",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "MaxOrderQty",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "OnOrderQty",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "UnitMeasureCode",
+				"type": "varchar"
+			},
+			{
+				"name": "ModifiedDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "Purchasing",
+			"table": "ProductVendor"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

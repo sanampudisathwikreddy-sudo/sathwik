@@ -1,0 +1,9 @@
+{
+	"name": "sathwik-df-dev",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "07989d2b-a66f-4406-8b1d-30a1226421a4",
+		"tenantId": "e5e76c11-7bd2-4b5f-b9e4-733bfc1eb6e3"
+	}
+}
