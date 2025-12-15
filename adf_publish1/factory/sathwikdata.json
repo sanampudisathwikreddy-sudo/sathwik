@@ -1,0 +1,9 @@
+{
+	"name": "sathwikdata",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "14b562c8-73da-4e09-a535-f55910596bb2",
+		"tenantId": "59425338-999c-46fa-ad83-8a8f1d768f87"
+	}
+}
