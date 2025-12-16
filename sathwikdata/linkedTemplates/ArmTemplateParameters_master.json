@@ -1,0 +1,66 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "sathwikdata"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_password": {
+			"value": ""
+		},
+		"SqlServer1_password": {
+			"value": ""
+		},
+		"lnk_adls_accountKey": {
+			"value": ""
+		},
+		"lnk_azuresql_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://sathwikstorage.dfs.core.windows.net/"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "sathwiksqlserver.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "sathwikdb"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "sathwiksqladmin"
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"value": "DESKTOP-5APE4U0"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"value": "sathwik"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"value": "sathwik"
+		},
+		"lnk_adls_properties_typeProperties_url": {
+			"value": "https://sathwikdatalakedev.dfs.core.windows.net/"
+		},
+		"lnk_azuresql_properties_typeProperties_server": {
+			"value": "sathwik-server.database.windows.net"
+		},
+		"lnk_azuresql_properties_typeProperties_database": {
+			"value": "sathwik"
+		},
+		"lnk_azuresql_properties_typeProperties_userName": {
+			"value": "sathwikserver"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
