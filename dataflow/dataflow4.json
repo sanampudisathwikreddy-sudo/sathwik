@@ -1,0 +1,109 @@
+{
+	"name": "dataflow4",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText37",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				},
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable33",
+						"type": "DatasetReference"
+					},
+					"name": "source2"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable34",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "derivedColumn1"
+				},
+				{
+					"name": "exists1"
+				},
+				{
+					"name": "derivedColumn2"
+				},
+				{
+					"name": "alterRow1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          OrderID as integer,",
+				"          OrderDate as date,",
+				"          CustomerName as string,",
+				"          Product as string,",
+				"          Quantity as integer,",
+				"          Price as integer,",
+				"          TotalAmount as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source(output(",
+				"          OrderID as integer,",
+				"          OrderDate as date,",
+				"          CustomerName as string,",
+				"          Product as string,",
+				"          Quantity as integer,",
+				"          Price as integer,",
+				"          TotalAmount as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> source2",
+				"source1 derive(hash_key = md5(OrderDate,CustomerName)) ~> derivedColumn1",
+				"derivedColumn1, derivedColumn2 exists(source1@OrderID == source2@OrderID",
+				"     && hash_key == hash_key1,",
+				"     negate:true,",
+				"     broadcast: 'auto')~> exists1",
+				"source2 derive(hash_key1 = md5(OrderDate,CustomerName)) ~> derivedColumn2",
+				"exists1 alterRow(updateIf(1==1)) ~> alterRow1",
+				"alterRow1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          OrderID as integer,",
+				"          OrderDate as date,",
+				"          CustomerName as string,",
+				"          Product as string,",
+				"          Quantity as integer,",
+				"          Price as integer,",
+				"          TotalAmount as integer",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          OrderID,",
+				"          OrderDate,",
+				"          CustomerName,",
+				"          Product,",
+				"          Quantity,",
+				"          Price,",
+				"          TotalAmount",
+				"     )) ~> sink1"
+			]
+		}
+	}
+}
