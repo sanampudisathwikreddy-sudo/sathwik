@@ -1,0 +1,45 @@
+{
+	"name": "AzureSqlTable32",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "student_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "student_name",
+				"type": "varchar"
+			},
+			{
+				"name": "course",
+				"type": "varchar"
+			},
+			{
+				"name": "year",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "marks",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "active_status",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "students"
+		}
+	}
+}

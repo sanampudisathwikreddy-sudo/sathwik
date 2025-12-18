@@ -29,7 +29,7 @@
 				},
 				{
 					"dataset": {
-						"referenceName": "AzureSqlTable31",
+						"referenceName": "AzureSqlTable32",
 						"type": "DatasetReference"
 					},
 					"name": "sink2"
