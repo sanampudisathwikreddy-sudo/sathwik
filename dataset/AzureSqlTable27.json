@@ -34,7 +34,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "student"
+			"table": "sales"
 		}
 	}
 }
