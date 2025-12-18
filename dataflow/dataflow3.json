@@ -1,0 +1,146 @@
+{
+	"name": "dataflow3",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText36",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				},
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable29",
+						"type": "DatasetReference"
+					},
+					"name": "source2"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable30",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				},
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable31",
+						"type": "DatasetReference"
+					},
+					"name": "sink2"
+				}
+			],
+			"transformations": [
+				{
+					"name": "derivedColumn1"
+				},
+				{
+					"name": "derivedColumn2"
+				},
+				{
+					"name": "exists1"
+				},
+				{
+					"name": "exists2"
+				},
+				{
+					"name": "AlterRow1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          student_id as integer,",
+				"          student_name as string,",
+				"          course as string,",
+				"          year as integer,",
+				"          marks as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source(output(",
+				"          student_id as integer,",
+				"          student_name as string,",
+				"          course as string,",
+				"          year as integer,",
+				"          marks as integer,",
+				"          active_status as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> source2",
+				"source1 derive(hash_key1 = md5(student_name,course,year,marks),",
+				"          status1 = 1) ~> derivedColumn1",
+				"source2 derive(hash_key2 = md5(student_name,course,year,marks),",
+				"          status0 = 0) ~> derivedColumn2",
+				"derivedColumn1, derivedColumn2 exists(source1@student_id == source2@student_id",
+				"     && hash_key1 == hash_key2,",
+				"     negate:true,",
+				"     broadcast: 'auto')~> exists1",
+				"derivedColumn2, derivedColumn1 exists(hash_key1 !=hash_key2 && source2@student_id==source1@student_id,",
+				"     negate:false,",
+				"     broadcast: 'auto')~> exists2",
+				"exists2 alterRow(updateIf(1==1)) ~> AlterRow1",
+				"exists1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          student_id as integer,",
+				"          student_name as string,",
+				"          course as string,",
+				"          year as integer,",
+				"          marks as integer,",
+				"          active_status as integer",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          student_id,",
+				"          student_name,",
+				"          course,",
+				"          year,",
+				"          marks,",
+				"          active_status = status1",
+				"     )) ~> sink1",
+				"AlterRow1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          student_id as integer,",
+				"          student_name as string,",
+				"          course as string,",
+				"          year as integer,",
+				"          marks as integer,",
+				"          active_status as integer",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:false,",
+				"     updateable:true,",
+				"     upsertable:false,",
+				"     keys:['student_id'],",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          student_id,",
+				"          student_name,",
+				"          course,",
+				"          year,",
+				"          marks,",
+				"          active_status = status0",
+				"     )) ~> sink2"
+			]
+		}
+	}
+}
