@@ -1,0 +1,44 @@
+{
+	"name": "DelimitedText40",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "railway.csv",
+				"fileSystem": "scd1"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "id",
+				"type": "String"
+			},
+			{
+				"name": "name",
+				"type": "String"
+			},
+			{
+				"name": "salary",
+				"type": "String"
+			},
+			{
+				"name": "adress",
+				"type": "String"
+			},
+			{
+				"name": "code",
+				"type": "String"
+			}
+		]
+	}
+}

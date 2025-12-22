@@ -1,0 +1,45 @@
+{
+	"name": "AzureSqlTable47",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "name",
+				"type": "varchar"
+			},
+			{
+				"name": "salary",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "adress",
+				"type": "varchar"
+			},
+			{
+				"name": "code",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "active_status",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "railway"
+		}
+	}
+}

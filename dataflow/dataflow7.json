@@ -1,0 +1,145 @@
+{
+	"name": "dataflow7",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText40",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				},
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable45",
+						"type": "DatasetReference"
+					},
+					"name": "source2"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable46",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				},
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable47",
+						"type": "DatasetReference"
+					},
+					"name": "sink2"
+				}
+			],
+			"transformations": [
+				{
+					"name": "derivedColumn1"
+				},
+				{
+					"name": "derivedColumn2"
+				},
+				{
+					"name": "exists1"
+				},
+				{
+					"name": "exists2"
+				},
+				{
+					"name": "AlterRow1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          id as integer,",
+				"          name as string,",
+				"          salary as integer,",
+				"          adress as string,",
+				"          code as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source(output(",
+				"          id as integer,",
+				"          name as string,",
+				"          salary as integer,",
+				"          adress as string,",
+				"          code as integer,",
+				"          active_status as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> source2",
+				"source1 derive(hash_key1 = md5(salary,adress,code),",
+				"          status1 = 1) ~> derivedColumn1",
+				"source2 derive(hash_key2 = md5(salary,adress,code),",
+				"          status0 = 0) ~> derivedColumn2",
+				"derivedColumn1, derivedColumn2 exists(hash_key1==hash_key2,",
+				"     negate:true,",
+				"     broadcast: 'auto')~> exists1",
+				"derivedColumn2, exists1 exists(source2@name==source1@name &&hash_key1!=hash_key2,",
+				"     negate:false,",
+				"     broadcast: 'auto')~> exists2",
+				"exists2 alterRow(updateIf(1==1)) ~> AlterRow1",
+				"exists1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          id as integer,",
+				"          name as string,",
+				"          salary as integer,",
+				"          adress as string,",
+				"          code as integer,",
+				"          active_status as integer",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          id,",
+				"          name,",
+				"          salary,",
+				"          adress,",
+				"          code,",
+				"          active_status = status1",
+				"     )) ~> sink1",
+				"AlterRow1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          id as integer,",
+				"          name as string,",
+				"          salary as integer,",
+				"          adress as string,",
+				"          code as integer,",
+				"          active_status as integer",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:false,",
+				"     updateable:true,",
+				"     upsertable:false,",
+				"     keys:['id'],",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          id,",
+				"          name,",
+				"          salary,",
+				"          adress,",
+				"          code,",
+				"          active_status = status0",
+				"     )) ~> sink2"
+			]
+		}
+	}
+}
