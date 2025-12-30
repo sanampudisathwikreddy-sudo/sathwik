@@ -13,6 +13,118 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlTable37')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "OrderID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "OrderDate",
+						"type": "date"
+					},
+					{
+						"name": "CustomerName",
+						"type": "varchar"
+					},
+					{
+						"name": "Product",
+						"type": "varchar"
+					},
+					{
+						"name": "Quantity",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Price",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TotalAmount",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "active_status",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "sales"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlTable38')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "OrderID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "OrderDate",
+						"type": "date"
+					},
+					{
+						"name": "CustomerName",
+						"type": "varchar"
+					},
+					{
+						"name": "Product",
+						"type": "varchar"
+					},
+					{
+						"name": "Quantity",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Price",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TotalAmount",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "modified_date",
+						"type": "date"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "sales"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AzureSqlTable39')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -717,6 +829,76 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlTable54')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "table_name",
+						"type": "varchar"
+					},
+					{
+						"name": "last_load_date",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "watermark_table"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlTable55')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "emp_id",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "emp_name",
+						"type": "varchar"
+					},
+					{
+						"name": "salary",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "last_updated",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "employee_src"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AzureSqlTable6')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -789,153 +971,6 @@
 					"schema": "Purchasing",
 					"table": "ProductVendor"
 				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlTable7')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lnk_azuresql",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "person",
-					"table": "Address"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlTable8')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lnk_azuresql",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "Employee"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlTable9')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lnk_azuresql",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "EmployeeId",
-						"type": "nvarchar"
-					},
-					{
-						"name": "FirstName",
-						"type": "nvarchar"
-					},
-					{
-						"name": "LastName",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Email",
-						"type": "nvarchar"
-					},
-					{
-						"name": "AddressLine1",
-						"type": "nvarchar"
-					},
-					{
-						"name": "AddressLine2",
-						"type": "nvarchar"
-					},
-					{
-						"name": "City",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Pincode",
-						"type": "nvarchar"
-					},
-					{
-						"name": "CreatedOn",
-						"type": "datetime2",
-						"scale": 7
-					},
-					{
-						"name": "ModifiedOn",
-						"type": "datetime2",
-						"scale": 7
-					},
-					{
-						"name": "CreatedBy",
-						"type": "nvarchar"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "Employee"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DelimitedText1')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lnk_adls",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"folderPath": "Multiple files",
-						"fileSystem": "sathwik-container-dev"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "DepartmentID",
-						"type": "String"
-					},
-					{
-						"name": "Name",
-						"type": "String"
-					},
-					{
-						"name": "GroupName",
-						"type": "String"
-					},
-					{
-						"name": "ModifiedDate",
-						"type": "String"
-					}
-				]
 			},
 			"dependsOn": []
 		}
