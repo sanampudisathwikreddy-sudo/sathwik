@@ -13,11 +13,10 @@
 			"password": {
 				"type": "AzureKeyVaultSecret",
 				"store": {
-					"referenceName": "AzureKeyVault2",
+					"referenceName": "AzureKeyVault3",
 					"type": "LinkedServiceReference"
 				},
-				"secretName": "sathwik-sec",
-				"secretVersion": "baec94e1b28b4333b5b4079673f8438a"
+				"secretName": "secret-key"
 			}
 		}
 	},
