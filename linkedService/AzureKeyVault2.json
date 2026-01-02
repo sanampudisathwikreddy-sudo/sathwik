@@ -4,7 +4,7 @@
 		"annotations": [],
 		"type": "AzureKeyVault",
 		"typeProperties": {
-			"baseUrl": "https://sathwik-vault.vault.azure.net/"
+			"baseUrl": "https://new-keyvaults.vault.azure.net/"
 		}
 	}
 }
