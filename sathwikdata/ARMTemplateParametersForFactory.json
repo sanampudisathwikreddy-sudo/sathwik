@@ -11,9 +11,6 @@
 		"AzureDataLakeStorage1_accountKey": {
 			"value": ""
 		},
-		"AzureSqlDatabase1_password": {
-			"value": ""
-		},
 		"SqlServer1_password": {
 			"value": ""
 		},
@@ -26,6 +23,9 @@
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://sathwikstorage.dfs.core.windows.net/"
 		},
+		"AzureKeyVault3_properties_typeProperties_baseUrl": {
+			"value": "https://sathwiks.vault.azure.net/"
+		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
 			"value": "sathwiksqlserver.database.windows.net"
 		},
@@ -33,6 +33,15 @@
 			"value": "sathwikdb"
 		},
 		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "sathwiksqladmin"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_server": {
+			"value": "sathwiksqlserver.database.windows.net"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_database": {
+			"value": "sathwikdb"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_userName": {
 			"value": "sathwiksqladmin"
 		},
 		"SqlServer1_properties_typeProperties_server": {
