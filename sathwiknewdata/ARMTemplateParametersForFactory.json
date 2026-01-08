@@ -1,0 +1,84 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "sathwiknewdata"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_password": {
+			"value": ""
+		},
+		"SqlServer1_password": {
+			"value": ""
+		},
+		"SqlServer2_password": {
+			"value": ""
+		},
+		"lnk_adls_accountKey": {
+			"value": ""
+		},
+		"lnk_azuresql_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://sathwik313.dfs.core.windows.net/"
+		},
+		"AzureKeyVault3_properties_typeProperties_baseUrl": {
+			"value": "https://sathwiks.vault.azure.net/"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "sathwiksqlserver313.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "master"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "sathwiksqlserver"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_server": {
+			"value": "sathwiksqlserver.database.windows.net"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_database": {
+			"value": "sathwikdb"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_userName": {
+			"value": "sathwiksqladmin"
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"value": "DESKTOP-5APE4U0"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"value": "sathwik"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"value": "sathwik"
+		},
+		"SqlServer2_properties_typeProperties_server": {
+			"value": "sathwik"
+		},
+		"SqlServer2_properties_typeProperties_database": {
+			"value": "sathwik"
+		},
+		"SqlServer2_properties_typeProperties_userName": {
+			"value": "sathwik313"
+		},
+		"lnk_adls_properties_typeProperties_url": {
+			"value": "https://sathwikdatalakedev.dfs.core.windows.net/"
+		},
+		"lnk_azuresql_properties_typeProperties_server": {
+			"value": "sathwik-server.database.windows.net"
+		},
+		"lnk_azuresql_properties_typeProperties_database": {
+			"value": "sathwik"
+		},
+		"lnk_azuresql_properties_typeProperties_userName": {
+			"value": "sathwikserver"
+		}
+	}
+}
