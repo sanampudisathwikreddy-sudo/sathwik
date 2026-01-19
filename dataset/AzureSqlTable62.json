@@ -1,0 +1,61 @@
+{
+	"name": "AzureSqlTable62",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "BillOfMaterialsID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ProductAssemblyID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ComponentID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "StartDate",
+				"type": "date"
+			},
+			{
+				"name": "EndDate",
+				"type": "date"
+			},
+			{
+				"name": "UnitMeasureCode",
+				"type": "char"
+			},
+			{
+				"name": "BOMLevel",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PerAssemblyQty",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "ModifiedDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "productio",
+			"table": "BillOfMaterials"
+		}
+	}
+}
