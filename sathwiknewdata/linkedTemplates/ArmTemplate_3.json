@@ -56,6 +56,70 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlTable62')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "BillOfMaterialsID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ProductAssemblyID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ComponentID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "StartDate",
+						"type": "date"
+					},
+					{
+						"name": "EndDate",
+						"type": "date"
+					},
+					{
+						"name": "UnitMeasureCode",
+						"type": "char"
+					},
+					{
+						"name": "BOMLevel",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "PerAssemblyQty",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "ModifiedDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "productio",
+					"table": "BillOfMaterials"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AzureSqlTable7')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -745,86 +809,6 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": "purchase",
-						"fileSystem": "multipefiles"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "ProductID",
-						"type": "String"
-					},
-					{
-						"name": "BusinessEntityID",
-						"type": "String"
-					},
-					{
-						"name": "AverageLeadTime",
-						"type": "String"
-					},
-					{
-						"name": "StandardPrice",
-						"type": "String"
-					},
-					{
-						"name": "LastReceiptCost",
-						"type": "String"
-					},
-					{
-						"name": "LastReceiptDate",
-						"type": "String"
-					},
-					{
-						"name": "MinOrderQty",
-						"type": "String"
-					},
-					{
-						"name": "MaxOrderQty",
-						"type": "String"
-					},
-					{
-						"name": "OnOrderQty",
-						"type": "String"
-					},
-					{
-						"name": "UnitMeasureCode",
-						"type": "String"
-					},
-					{
-						"name": "ModifiedDate",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DelimitedText22')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lnk_adls",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"file_name": {
-						"type": "string"
-					}
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileName": {
-							"value": "@dataset().file_name",
-							"type": "Expression"
-						},
 						"folderPath": "purchase",
 						"fileSystem": "multipefiles"
 					},
