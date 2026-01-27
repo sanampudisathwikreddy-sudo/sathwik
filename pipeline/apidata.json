@@ -76,6 +76,12 @@
 				]
 			}
 		],
+		"parameters": {
+			"tr": {
+				"type": "string",
+				"defaultValue": "run"
+			}
+		},
 		"annotations": []
 	}
 }
