@@ -80,6 +80,9 @@
 		"lnk_azuresql_properties_typeProperties_userName": {
 			"value": "sathwikserver"
 		},
+		"trigger1_properties_apidata_parameters_tr": {
+			"value": "run"
+		},
 		"containerUri": {
 			"value": ""
 		},

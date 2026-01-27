@@ -106,6 +106,10 @@
 		"lnk_azuresql_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "sathwikserver"
+		},
+		"trigger1_properties_apidata_parameters_tr": {
+			"type": "string",
+			"defaultValue": "run"
 		}
 	},
 	"variables": {
@@ -645,6 +649,12 @@
 				],
 				"policy": {
 					"elapsedTimeMetric": {}
+				},
+				"parameters": {
+					"tr": {
+						"type": "string",
+						"defaultValue": "run"
+					}
 				},
 				"annotations": []
 			},
@@ -9372,6 +9382,38 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/trigger1')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "apidata",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"tr": "[parameters('trigger1_properties_apidata_parameters_tr')]"
+						}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 2,
+						"startTime": "2026-01-27T14:40:00",
+						"timeZone": "India Standard Time"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/apidata')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/integrationRuntime2')]",
 			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
 			"apiVersion": "2018-06-01",
@@ -10086,36 +10128,6 @@
 				"[concat(variables('factoryId'), '/datasets/AzureSqlTable45')]",
 				"[concat(variables('factoryId'), '/datasets/AzureSqlTable46')]",
 				"[concat(variables('factoryId'), '/datasets/AzureSqlTable47')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/trigger1')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Started",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "apidata",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Minute",
-						"interval": 2,
-						"startTime": "2026-01-27T14:40:00",
-						"timeZone": "India Standard Time"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/apidata')]"
 			]
 		}
 	]

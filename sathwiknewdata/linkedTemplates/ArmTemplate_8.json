@@ -6,6 +6,10 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "sathwiknewdata"
+		},
+		"trigger1_properties_apidata_parameters_tr": {
+			"type": "string",
+			"defaultValue": "run"
 		}
 	},
 	"variables": {
@@ -823,14 +827,16 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"runtimeState": "Started",
+				"runtimeState": "Stopped",
 				"pipelines": [
 					{
 						"pipelineReference": {
 							"referenceName": "apidata",
 							"type": "PipelineReference"
 						},
-						"parameters": {}
+						"parameters": {
+							"tr": "[parameters('trigger1_properties_apidata_parameters_tr')]"
+						}
 					}
 				],
 				"type": "ScheduleTrigger",

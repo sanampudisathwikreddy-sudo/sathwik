@@ -107,6 +107,10 @@
 			"type": "string",
 			"defaultValue": "sathwikserver"
 		},
+		"trigger1_properties_apidata_parameters_tr": {
+			"type": "string",
+			"defaultValue": "run"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -366,6 +370,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"trigger1_properties_apidata_parameters_tr": {
+						"value": "[parameters('trigger1_properties_apidata_parameters_tr')]"
 					}
 				}
 			},

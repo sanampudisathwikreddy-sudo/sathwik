@@ -1323,6 +1323,12 @@
 				"policy": {
 					"elapsedTimeMetric": {}
 				},
+				"parameters": {
+					"tr": {
+						"type": "string",
+						"defaultValue": "run"
+					}
+				},
 				"annotations": []
 			},
 			"dependsOn": [
