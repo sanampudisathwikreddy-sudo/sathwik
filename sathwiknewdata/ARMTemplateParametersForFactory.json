@@ -14,20 +14,26 @@
 		"AzureSqlDatabase1_password": {
 			"value": ""
 		},
+		"AzureSqlDatabase2_password": {
+			"value": ""
+		},
+		"HttpServer1_password": {
+			"value": ""
+		},
+		"SqlServer1_password": {
+			"value": ""
+		},
 		"lnk_adls_accountKey": {
 			"value": ""
 		},
 		"lnk_azuresql_password": {
 			"value": ""
 		},
-		"SqlServer1_password": {
-			"value": ""
-		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://sathwik313.dfs.core.windows.net/"
 		},
-		"AzureKeyVault3_properties_typeProperties_baseUrl": {
-			"value": "https://sathwiks.vault.azure.net/"
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://secretkey313.vault.azure.net/"
 		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
 			"value": "sathwiksqlserver313.database.windows.net"
@@ -47,6 +53,21 @@
 		"AzureSqlDatabase2_properties_typeProperties_userName": {
 			"value": "sathwiksqladmin"
 		},
+		"HttpServer1_properties_typeProperties_url": {
+			"value": "https://jsonplaceholder.typicode.com/posts"
+		},
+		"HttpServer1_properties_typeProperties_userName": {
+			"value": "sathwiksqladmin"
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"value": "sathwik"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"value": "sathwik"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"value": "sathwik313"
+		},
 		"lnk_adls_properties_typeProperties_url": {
 			"value": "https://sathwikdatalakedev.dfs.core.windows.net/"
 		},
@@ -58,15 +79,6 @@
 		},
 		"lnk_azuresql_properties_typeProperties_userName": {
 			"value": "sathwikserver"
-		},
-		"SqlServer1_properties_typeProperties_server": {
-			"value": "sathwik"
-		},
-		"SqlServer1_properties_typeProperties_database": {
-			"value": "sathwik"
-		},
-		"SqlServer1_properties_typeProperties_userName": {
-			"value": "sathwik313"
 		}
 	}
 }
