@@ -8,6 +8,9 @@
 				"pipelineReference": {
 					"referenceName": "apidata",
 					"type": "PipelineReference"
+				},
+				"parameters": {
+					"tr": "run"
 				}
 			}
 		],
