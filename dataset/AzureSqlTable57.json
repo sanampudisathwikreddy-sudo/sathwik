@@ -1,6 +1,10 @@
 {
 	"name": "AzureSqlTable57",
 	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [
@@ -33,10 +37,6 @@
 				"name": "CreatedDate",
 				"type": "date"
 			}
-		],
-		"typeProperties": {
-			"schema": "dbo",
-			"table": "Customers"
-		}
+		]
 	}
 }
