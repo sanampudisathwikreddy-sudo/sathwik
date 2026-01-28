@@ -37,6 +37,10 @@
 				"name": "CreatedDate",
 				"type": "date"
 			}
-		]
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "student"
+		}
 	}
 }
