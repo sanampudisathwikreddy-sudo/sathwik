@@ -3,18 +3,25 @@
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Stopped",
-		"type": "TumblingWindowTrigger",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "apidata",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"tr": "run"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
 		"typeProperties": {
-			"frequency": "Minute",
-			"interval": 5,
-			"startTime": "2026-01-28T11:35:00Z",
-			"endTime": "2026-01-29T12:00:00Z",
-			"delay": "00:00:00",
-			"maxConcurrency": 50,
-			"retryPolicy": {
-				"intervalInSeconds": 30
-			},
-			"dependsOn": []
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 2,
+				"startTime": "2026-01-27T14:40:00",
+				"timeZone": "India Standard Time"
+			}
 		}
 	}
 }

@@ -57,5 +57,6 @@
 			"schema": "productio",
 			"table": "BillOfMaterials"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
 }

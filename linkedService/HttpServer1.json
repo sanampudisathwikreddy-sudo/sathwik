@@ -1,13 +1,15 @@
 {
 	"name": "HttpServer1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "HttpServer",
 		"typeProperties": {
-			"url": "https://raw.githubusercontent.com/sanampudisathwikreddy-sudo/sathwik313/refs/heads/main/",
-			"enableServerCertificateValidation": true,
-			"authenticationType": "Anonymous"
+			"url": "https://jsonplaceholder.typicode.com/posts",
+			"enableServerCertificateValidation": false,
+			"authenticationType": "Basic",
+			"userName": "sathwiksqladmin",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDM5NTUxNTcwLTNBNzctNEE1Qi1BNUUwLUEyNEJCNTk4ODUyQV8wMjhkY2Q1MS1iNzFhLTQxZmQtOWQ3Ny0xMjcwYjE2ZTQ0OGYiDQp9"
 		}
-	},
-	"type": "Microsoft.DataFactory/factories/linkedservices"
+	}
 }
